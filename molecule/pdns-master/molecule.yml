@@ -19,16 +19,19 @@ platforms:
     image: centos:7
     dockerfile_tpl: centos-systemd
 
-  # Temporarely disable CentOS 8 due to:
-  # https://github.com/ansible/ansible/issues/64963
-  # - name: centos-8
-  #   groups: ["pdns"]
-  #   image: centos:8
-  #   dockerfile_tpl: centos-systemd
+  - name: centos-8
+    groups: ["pdns"]
+    image: centos:8
+    dockerfile_tpl: centos-systemd
 
   - name: ubuntu-1804
     groups: ["pdns"]
     image: ubuntu:18.04
+    dockerfile_tpl: debian-systemd
+
+  - name: ubuntu-2004
+    groups: ["pdns"]
+    image: ubuntu:20.04
     dockerfile_tpl: debian-systemd
 
   - name: debian-9
